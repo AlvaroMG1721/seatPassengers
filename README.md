@@ -35,6 +35,12 @@ To install the dependencies and run the tests, place yourself in the project fol
 sbt test
 ```
 
+To create an executable jar, place yourself in the project folder and execute:
+
+```
+sbt assembly
+```
+
 The program was written using the Scala programming language (v. 2.11.8):
 
 * [Scala](https://www.scala-lang.org/)
