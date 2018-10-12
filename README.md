@@ -1,5 +1,5 @@
-Plane Seats Arranger
-====================
+Seat Passengers
+===============
 
 How to run
 -----------
@@ -54,7 +54,15 @@ The following assumptions have been made when designing the solution:
 
 Solution description
 --------------------
+We implemented an algorithm that takes the following steps:
 
+1) Parse the input file, line by line, obtaining the plane dimensions and a series of Groups, that contain the Passengers.
+2) Find the best combination of Groups to maximize the number of Passengers that will board the plane in case it is oversubscribed, without splitting the groups. These are the groups that move forward, the number of passengers left outside is printed on standard output.
+3) Split the groups that have a size greater than the length of the rows in the plane into new groups. These new groups will be treated as if they were unrelated.
+4) Find the best seats for each group, one by one, ordered with descending size. The passengers in each group will be arranged so that the passenger with window preference is at the right side or at the left side and the group will be inserted in a seats matrix from the left or from the right, trying to optimize window preference satisfaction. The seats matrix is of type Int, and has the dimensions of the plane. Groups are inserted replacing zeroes (the value associated with an empty seat) with the ids of the passengers they contain. In the process, unsatisfied clients are counted.
+5) Prints the results with the format requested.
+
+The complexity of this algorithm is O(N*M), where N is the number of input passengers and M the number of rows in the plane. 
 
 
 Alternative solutions
@@ -66,9 +74,9 @@ This solution would require more computing power, but could be easily done in a 
 
 What is missing
 ---------------
-  - Tests: there are tests missing for many of the methods used in the application.
+  - Tests: there are tests missing for many of the methods used in the application and the 'Group' class lacks and appropriate compare method.
   - The method that splits oversized groups should take into account window preference.  
   - Currently, groups are processed individually. To improve satisfaction, we could take into account the rest of the groups, make the best combinations and then place them.
-  - There are some consta
-  - Refactoring and optimization of the classes in package 'algorithm'
+  - There are some constants hardcoded.
+  - Refactoring and optimization of the methods in package 'algorithm'
   
