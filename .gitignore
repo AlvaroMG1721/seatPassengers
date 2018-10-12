@@ -1,0 +1,8 @@
+.idea/
+*.iml
+target/
+/.project
+/.classpath
+/.cache-main
+/.cache-tests
+/target/
