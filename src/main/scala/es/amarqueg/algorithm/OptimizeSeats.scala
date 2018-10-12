@@ -71,10 +71,7 @@ object OptimizeSeats {
     if (!group.hasPassengerWithWindowPreference) {
       group.passengers
     } else {
-
-      if (windowsLeft == 1) {
-        shiftPassengerRight(group.passengers)
-      } else if (windowsLeft == 2 && group.numWindowPreferencePassengers > 1) {
+      if (windowsLeft == 2 && group.numWindowPreferencePassengers > 1) {
         shiftPassengerBothSides(group.passengers)
       } else {
         shiftPassengerRight(group.passengers).reverse
