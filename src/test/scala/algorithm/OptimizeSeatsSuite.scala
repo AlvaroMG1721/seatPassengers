@@ -16,14 +16,6 @@ class OptimizeSeatsSuite extends FunSpec with Matchers {
 
   describe("The orderBasedOnWindow method") {
 
-    it("Should place the first passenger with window preference found to the right when there is one window left") {
-
-      val passengersArray = Seq(Passenger(1,false), Passenger(2,true), Passenger(3,false))
-      val expectedArray = List(Passenger(1,false), Passenger(3,false), Passenger(2,true)).mkString(",")
-
-      assert(orderPassengersBasedOnWindow(Group(passengersArray), 1).mkString(",") === expectedArray)
-    }
-
     it("Should place a passenger with window preference to the left when there is two windows left " +
         "and one passenger with preference") {
 
